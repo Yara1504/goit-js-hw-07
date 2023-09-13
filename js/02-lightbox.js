@@ -6,21 +6,6 @@ import { galleryItems } from './gallery-items.js';
 
 const galleryList = document.querySelector(`.gallery`);
 
-galleryList.addEventListener(`click`, (event) => {
-    event.preventDefault();
-
-    const clickElement = event.target;
-
-    if (clickElement.classList.contains(`gallery__image`)) {
-        const imageLink = clickElement.getAttribute(`src`);
-
-        const basicBox = basicLightbox.create(`
-        <img src="${imageLink}"/>`);
-
-        basicBox.show();
-}
-});
-
 const galleryMarkup = galleryItems.map((galleryItem) =>
     `<li class="gallery__item">
     <a class="gallery__link" href= "${galleryItem.original}">
@@ -29,11 +14,10 @@ const galleryMarkup = galleryItems.map((galleryItem) =>
     </li>
 `).join(``);
 
-galleryList.insertAdjacentHTML('beforeend', galleryMarkup, lightBox);
+galleryList.insertAdjacentHTML('beforeend', galleryMarkup);
 
-var lightBox = new SimpleLightbox('.gallery a', {
+new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
 });
   
-lightBox.show();
