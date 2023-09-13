@@ -1,9 +1,5 @@
 import { galleryItems } from './gallery-items.js';
 
-//import SimpleLightbox from "simplelightbox/dist/simple-lightbox.esm";
-// Change code below this line
-
-
 const galleryList = document.querySelector(`.gallery`);
 
 const galleryMarkup = galleryItems.map((galleryItem) =>
